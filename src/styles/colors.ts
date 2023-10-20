@@ -8,3 +8,6 @@ export const Colors = {
   $danger: '#EA638C',
   $danger_highlight: '#ED9CB5'
 };
+
+export type ThemeColors = typeof Colors;
+export type TypeColors = keyof ThemeColors;

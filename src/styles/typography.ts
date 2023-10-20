@@ -27,3 +27,5 @@ export const typography = {
     color: Colors.$black
   }
 };
+
+export type IStyleTopography = keyof typeof typography;
