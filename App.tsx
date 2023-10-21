@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { ActivityIndicator, StatusBar } from 'react-native';
+import Toast from 'react-native-toast-message';
+
 import {
   useFonts,
   Montserrat_300Light,
@@ -30,6 +32,7 @@ export default function App() {
         backgroundColor={themeStyle.colors.$blue_lightest}
       />
       <AppRoutes />
+      <Toast />
     </SafeAreaProvider>
   );
 }

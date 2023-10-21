@@ -37,6 +37,8 @@
     "react-native-screens": "~3.22.0",
     "react-native-svg": "13.9.0",
     "react-native-svg-transformer": "^1.1.0",
+    "react-native-toast-message": "^2.1.6",
+    "react-native-uuid": "^2.0.1",
     "styled-components": "^6.1.0",
     "typescript": "*",
     "zod": "^3.22.4",
