@@ -3,4 +3,9 @@ export interface ButtonStatus {
   type: ButtonStatusType;
 }
 
-export type ButtonIconType = 'AddIcon' | 'ESCIcon';
+export type ButtonIconType =
+  | 'AddIcon'
+  | 'ESCIcon'
+  | 'CancelIcon'
+  | 'CancelIconBold'
+  | 'CheckBoldIcon';

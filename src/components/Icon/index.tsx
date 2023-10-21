@@ -8,6 +8,7 @@ import { CheckIcon } from 'src/assets/icons/CheckIcon';
 import themeStyle from '@styles/themeStyle';
 import { ESCIcon } from 'src/assets/icons/ESCIcon';
 import { CheckBoldIcon } from 'src/assets/icons/CheckBoldIcon';
+import { CancelIconBold } from 'src/assets/icons/CancelIconBold';
 
 export interface IconBase {
   size?: number;
@@ -40,7 +41,8 @@ const iconRegistry = {
   CheckIcon: CheckIcon,
   CancelIcon: CancelIcon,
   ESCIcon: ESCIcon,
-  CheckBoldIcon: CheckBoldIcon
+  CheckBoldIcon: CheckBoldIcon,
+  CancelIconBold: CancelIconBold
 };
 
 type IconType = typeof iconRegistry;

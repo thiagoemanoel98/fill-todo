@@ -18,10 +18,15 @@ export function InputCard({
     <S.Container>
       <S.ContainerInput
         placeholder="Pay credit card bill..."
+        multiline={true}
         placeholderTextColor={themeStyle.colors.$gray}
         {...rnTextInputProps}
       />
-      {errorMessage && <Text variant="Label">{errorMessage}</Text>}
+      {errorMessage && (
+        <Text variant="Label" color="$danger" paddingLeft="medium">
+          {errorMessage}
+        </Text>
+      )}
     </S.Container>
   );
 }

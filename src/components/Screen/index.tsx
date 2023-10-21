@@ -9,14 +9,16 @@ import Logo from '../../assets/images/Logo.svg';
 interface ScreenProps extends ViewStyle {
   children: React.ReactNode;
   hasPaddingTop?: boolean;
+  hasPaddingBottom?: boolean;
 }
 
 export function Screen({
   children,
   hasPaddingTop = true,
+  hasPaddingBottom = false,
   ...viewStyle
 }: ScreenProps) {
-  const { top } = useAppSafeArea();
+  const { top, bottom } = useAppSafeArea();
 
   return (
     <S.KeyboardAvoidView
@@ -26,7 +28,8 @@ export function Screen({
         style={[
           {
             paddingHorizontal: 20,
-            paddingTop: hasPaddingTop ? top : 0
+            paddingTop: hasPaddingTop ? top : 0,
+            paddingBottom: hasPaddingBottom ? bottom : 0
           },
           viewStyle
         ]}
