@@ -9,7 +9,7 @@ import {
   Montserrat_500Medium,
   Montserrat_700Bold
 } from '@expo-google-fonts/montserrat';
-import { Button, Text } from '@components';
+import { Button, Icon, Text } from '@components';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -30,6 +30,8 @@ export default function App() {
 
       <Button onClick={() => {}} />
       <Button onClick={() => {}} type="danger" />
+
+      <Icon name="CancelIcon" color="$blue_light" />
       <StatusBar style="auto" />
     </View>
   );
