@@ -9,7 +9,8 @@ import {
   Montserrat_500Medium,
   Montserrat_700Bold
 } from '@expo-google-fonts/montserrat';
-import { Button, Icon, Text } from '@components';
+import { Button, Icon, InputCard, Text } from '@components';
+import themeStyle from '@styles/themeStyle';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -45,6 +46,8 @@ export default function App() {
       <Button onClick={() => {}} type="danger" leftIcon="AddIcon" />
 
       <StatusBar style="auto" />
+
+      <InputCard />
     </View>
   );
 }
@@ -52,7 +55,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: themeStyle.colors.$blue_lightest,
     alignItems: 'center',
     justifyContent: 'center'
   }

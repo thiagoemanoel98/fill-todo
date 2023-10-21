@@ -6,7 +6,8 @@ export const Colors = {
   $blue_light: '#D0E8F9',
   $blue_lightest: '#DAEEFC',
   $danger: '#EA638C',
-  $danger_highlight: '#ED9CB5'
+  $danger_highlight: '#ED9CB5',
+  $gray: '#9E9FBE'
 };
 
 export type ThemeColors = typeof Colors;
