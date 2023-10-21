@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { StatusBar } from 'expo-status-bar';
-
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, StatusBar, StyleSheet } from 'react-native';
 import {
   useFonts,
   Montserrat_300Light,
@@ -11,6 +9,8 @@ import {
 } from '@expo-google-fonts/montserrat';
 import { Button, Card, Icon, InputCard, Switch, Text } from '@components';
 import themeStyle from '@styles/themeStyle';
+import { Screen } from 'src/components/Screen';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -24,44 +24,49 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Card
-        text="Log in to the online banking platform and pay the electricity, water, and internet bills by their respective due dates"
-        status="todo"
-        createdAt={new Date()}
-      />
-      <Card
-        text="Log in to the online banking platform and pay the electricity, water, and internet bills by their respective due dates"
-        status="done"
-        createdAt={new Date()}
+    <SafeAreaProvider>
+      <StatusBar
+        barStyle="dark-content"
+        backgroundColor={themeStyle.colors.$blue_light}
       />
 
-      <Switch enable={true} />
+      <Screen alignItems="center" hasPaddingTop={false}>
+        <Card
+          text="Log in to the online banking platform and pay the electricity, water, and internet bills by their respective due dates"
+          status="todo"
+          createdAt={new Date()}
+        />
+        <Card
+          text="Log in to the online banking platform and pay the electricity, water, and internet bills by their respective due dates"
+          status="done"
+          createdAt={new Date()}
+        />
 
-      <Text variant="Label" color="$blue_dark">
-        Open up App.js to start working on your app!
-      </Text>
+        <Switch enable={true} />
 
-      <Button onClick={() => {}} />
-      <Button onClick={() => {}} type="danger" />
+        <Text variant="Label" color="$blue_dark">
+          Open up App.js to start working on your app!
+        </Text>
 
-      <Icon name="CancelIcon" color="$blue_light" />
+        <Button onClick={() => {}} />
+        <Button onClick={() => {}} type="danger" />
 
-      <Button
-        onClick={() => {}}
-        type="danger"
-        leftIcon="AddIcon"
-        rightIcon="ESCIcon"
-      />
+        <Icon name="CancelIcon" color="$blue_light" />
 
-      <Button onClick={() => {}} type="default" rightIcon="ESCIcon" />
+        <Button
+          onClick={() => {}}
+          type="danger"
+          leftIcon="AddIcon"
+          rightIcon="ESCIcon"
+        />
 
-      <Button onClick={() => {}} type="danger" leftIcon="AddIcon" />
+        <Button onClick={() => {}} type="default" rightIcon="ESCIcon" />
 
-      <StatusBar style="auto" />
+        <Button onClick={() => {}} type="danger" leftIcon="AddIcon" />
 
-      <InputCard />
-    </View>
+        <InputCard />
+      </Screen>
+    </SafeAreaProvider>
   );
 }
 
