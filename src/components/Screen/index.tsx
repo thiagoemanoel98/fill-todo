@@ -4,7 +4,7 @@ import { Platform, ViewStyle } from 'react-native';
 
 import * as S from './styles';
 import { useAppSafeArea } from 'src/hooks/useAppSafeArea';
-import LogoImage from '../../assets/images/Logo.png';
+import Logo from '../../assets/images/Logo.svg';
 
 interface ScreenProps extends ViewStyle {
   children: React.ReactNode;
@@ -35,7 +35,7 @@ export function Screen({
         ]}
       >
         <S.LogoArea>
-          <S.Logo source={LogoImage} />
+          <Logo width={200} height={40} />
         </S.LogoArea>
         {children}
       </S.Container>

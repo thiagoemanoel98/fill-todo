@@ -27,7 +27,7 @@ export default function App() {
     <SafeAreaProvider>
       <StatusBar
         barStyle="dark-content"
-        backgroundColor={themeStyle.colors.$blue_light}
+        backgroundColor={themeStyle.colors.$blue_lightest}
       />
       <Home />
     </SafeAreaProvider>
