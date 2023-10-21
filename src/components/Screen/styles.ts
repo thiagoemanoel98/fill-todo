@@ -11,6 +11,8 @@ export const Container = styled.View`
 `;
 
 export const LogoArea = styled.View`
+  align-items: center;
+  justify-content: center;
   padding-top: 12px;
   margin-bottom: 12px;
 `;
