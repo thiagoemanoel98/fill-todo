@@ -23,7 +23,8 @@ module.exports = function (api) {
             '@styles': './src/styles',
             '@models': './src/models',
             '@screens': './src/screens',
-            '@store': './src/store'
+            '@store': './src/store',
+            '@routes': './src/routes'
           }
         }
       ]

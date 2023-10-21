@@ -10,7 +10,7 @@ import {
 
 import themeStyle from '@styles/themeStyle';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Home } from '@screens';
+import { AppRoutes } from '@routes';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -29,7 +29,7 @@ export default function App() {
         barStyle="dark-content"
         backgroundColor={themeStyle.colors.$blue_lightest}
       />
-      <Home />
+      <AppRoutes />
     </SafeAreaProvider>
   );
 }
