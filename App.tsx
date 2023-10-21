@@ -9,7 +9,7 @@ import {
   Montserrat_500Medium,
   Montserrat_700Bold
 } from '@expo-google-fonts/montserrat';
-import { Text } from '@components';
+import { Button, Text } from '@components';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -24,10 +24,12 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Text variant="Title" color="$blue_dark">
+      <Text variant="Label" color="$blue_dark">
         Open up App.js to start working on your app!
       </Text>
 
+      <Button onClick={() => {}} />
+      <Button onClick={() => {}} type="danger" />
       <StatusBar style="auto" />
     </View>
   );
