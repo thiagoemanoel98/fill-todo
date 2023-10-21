@@ -34,7 +34,9 @@ export function Home() {
           </Text>
         </S.SwitchArea>
 
-        <Button title="New" leftIcon="AddIcon" onClick={() => {}} />
+        <S.ButtonArea style={Shadow.applyShadow}>
+          <Button title="New" leftIcon="AddIcon" onClick={() => {}} />
+        </S.ButtonArea>
       </S.BottomArea>
     </Screen>
   );

@@ -17,6 +17,10 @@ export const SwitchArea = styled.View`
   align-items: center;
 `;
 
+export const ButtonArea = styled.View`
+  border-radius: 8px;
+`;
+
 export const FlatlistBottom = {
   paddingBottom: 100
 };
