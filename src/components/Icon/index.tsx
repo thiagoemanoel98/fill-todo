@@ -6,6 +6,7 @@ import { AddIcon } from 'src/assets/icons/AddIcon';
 import { CancelIcon } from 'src/assets/icons/CancelIcon';
 import { CheckIcon } from 'src/assets/icons/CheckIcon';
 import themeStyle from '@styles/themeStyle';
+import { ESCIcon } from 'src/assets/icons/ESCIcon';
 
 export interface IconBase {
   size?: number;
@@ -36,8 +37,9 @@ export function Icon({ name, color = '$black', size, onPress }: IconProps) {
 const iconRegistry = {
   AddIcon: AddIcon,
   CheckIcon: CheckIcon,
-  CancelIcon: CancelIcon
+  CancelIcon: CancelIcon,
+  ESCIcon: ESCIcon
 };
 
 type IconType = typeof iconRegistry;
-type IconNames = keyof IconType;
+export type IconNames = keyof IconType;

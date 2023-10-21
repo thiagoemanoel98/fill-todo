@@ -32,6 +32,18 @@ export default function App() {
       <Button onClick={() => {}} type="danger" />
 
       <Icon name="CancelIcon" color="$blue_light" />
+
+      <Button
+        onClick={() => {}}
+        type="danger"
+        leftIcon="AddIcon"
+        rightIcon="ESCIcon"
+      />
+
+      <Button onClick={() => {}} type="default" rightIcon="ESCIcon" />
+
+      <Button onClick={() => {}} type="danger" leftIcon="AddIcon" />
+
       <StatusBar style="auto" />
     </View>
   );

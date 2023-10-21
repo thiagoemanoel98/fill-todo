@@ -1,10 +1,6 @@
 import styled, { css } from 'styled-components/native';
 import themeStyle from '@styles/themeStyle';
-
-export type ButtonStatusType = 'default' | 'danger';
-interface ButtonStatus {
-  type: ButtonStatusType;
-}
+import { ButtonStatus } from './types';
 
 const statusDefault = css`
   /* / background-color: transparent; */
@@ -17,9 +13,20 @@ const statusDanger = css`
 `;
 
 export const Container = styled.TouchableOpacity<ButtonStatus>`
+  align-items: center;
+
+  flex-direction: row;
   padding: 8px 16px;
   border-radius: 8px;
 
   ${({ type }) => type === 'default' && statusDefault};
   ${({ type }) => type === 'danger' && statusDanger};
+`;
+
+export const IconLeftArea = styled.View`
+  margin-right: 4px;
+`;
+
+export const IconRightArea = styled.View`
+  margin-left: 4px;
 `;
