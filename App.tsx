@@ -9,7 +9,7 @@ import {
   Montserrat_500Medium,
   Montserrat_700Bold
 } from '@expo-google-fonts/montserrat';
-import { Button, Icon, InputCard, Text } from '@components';
+import { Button, Icon, InputCard, Switch, Text } from '@components';
 import themeStyle from '@styles/themeStyle';
 
 export default function App() {
@@ -25,6 +25,8 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Switch />
+
       <Text variant="Label" color="$blue_dark">
         Open up App.js to start working on your app!
       </Text>
