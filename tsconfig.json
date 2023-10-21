@@ -12,6 +12,8 @@
       "@routes": ["src/routes"],
       "@screens": ["src/screens"],
       "@services": ["src/services"],
+      "@models": ["src/models"],
+
       "@styles/*": ["src/styles/*"]
     }
   }
