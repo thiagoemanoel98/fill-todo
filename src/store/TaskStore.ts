@@ -1,4 +1,5 @@
 import { Task } from '@models';
+import { tasks } from 'src/utils/mockData';
 import { create } from 'zustand';
 
 type TaskStore = {
@@ -10,7 +11,7 @@ type TaskStore = {
 
 export const useTaskStore = create<TaskStore>((set) => {
   return {
-    tasks: [],
+    tasks: tasks,
     tasksFiltered: [],
     addTask: (task: Task) => {
       set((state) => ({ tasks: [...state.tasks, task] }));

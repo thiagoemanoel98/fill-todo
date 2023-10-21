@@ -19,6 +19,7 @@ export const Container = styled.View<CardProps>`
   padding: 16px;
   border-radius: 8px;
   flex-direction: row;
+  margin-bottom: 18px;
 
   ${({ status }) => status === 'done' && statusDone};
   ${({ status }) => status === 'expired' && statusExpired};

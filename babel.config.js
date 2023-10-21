@@ -22,7 +22,8 @@ module.exports = function (api) {
             '@utils': './src/utils',
             '@styles': './src/styles',
             '@models': './src/models',
-            '@screens': './src/screens'
+            '@screens': './src/screens',
+            '@store': './src/store'
           }
         }
       ]
