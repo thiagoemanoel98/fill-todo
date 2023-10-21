@@ -6,5 +6,7 @@ export function useHomeData() {
     state.tasksFiltered
   ]);
 
+  function isExpired() {}
+
   return { tasks, tasksFiltered };
 }

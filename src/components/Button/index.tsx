@@ -6,6 +6,7 @@ import { ButtonIconType, ButtonStatusType } from './types';
 import { Icon } from '../Icon';
 
 interface Props {
+  title: string;
   type?: ButtonStatusType;
   isDisabled?: boolean;
   leftIcon?: ButtonIconType;
@@ -14,6 +15,7 @@ interface Props {
 }
 
 export function Button({
+  title,
   type = 'default',
   isDisabled = false,
   leftIcon,
@@ -26,6 +28,7 @@ export function Button({
         <S.IconLeftArea>
           <Icon
             name={leftIcon}
+            size={22}
             color={type === 'default' ? '$blue_dark' : '$white'}
           />
         </S.IconLeftArea>
@@ -34,7 +37,7 @@ export function Button({
         variant="Button"
         color={type === 'default' ? '$blue_dark' : '$white'}
       >
-        index
+        {title}
       </Text>
 
       {rightIcon && (
