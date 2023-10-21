@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import {
   Button,
@@ -8,69 +8,30 @@ import {
   Spacer,
   Text
 } from '@components';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { NewTaskSchema, newTaskSchema } from './newTaskSchema';
 import * as S from './styles';
 
-import DateTimePicker, {
-  DateTimePickerEvent
-} from '@react-native-community/datetimepicker';
-import { Platform, Pressable, View } from 'react-native';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { Pressable, View } from 'react-native';
+import { useNewTaskData } from './hooks/useNewTaskData';
+import { AppScreenProps } from '@routes';
 
-const CurrentDate = new Date();
-
-export function NewTask() {
-  const [date, setDate] = useState(CurrentDate);
-
-  const [time, setTime] = useState(
-    new Date(CurrentDate.getTime() + 3 * 60 * 60 * 1000)
-  );
-
-  const [showDatePicker, setShowDatePicker] = useState(false);
-
-  const [showTimePicker, setShowTimePicker] = useState(false);
-
-  function formateDateToDDMMYYYY(data: Date): string {
-    const dia = String(data.getDate()).padStart(2, '0');
-    const mes = String(data.getMonth() + 1).padStart(2, '0');
-    const ano = data.getFullYear();
-
-    return `${dia}/${mes}/${ano}`;
-  }
-
-  function formateHourMinute(data: Date): string {
-    const hora = String(data.getHours()).padStart(2, '0');
-    const minuto = String(data.getMinutes()).padStart(2, '0');
-
-    return `${hora}:${minuto}`;
-  }
-
-  const onChangeDate = (
-    event: DateTimePickerEvent,
-    selectedDate: Date | undefined
-  ) => {
-    const currentDate = selectedDate || date;
-    setShowDatePicker(Platform.OS === 'ios');
-    setDate(currentDate);
-  };
-
-  const onChangeTime = (
-    event: DateTimePickerEvent,
-    selectedDate: Date | undefined
-  ) => {
-    const currentDate = selectedDate || date;
-    setShowTimePicker(Platform.OS === 'ios');
-    setTime(currentDate);
-  };
-
-  const { control, formState, handleSubmit } = useForm<NewTaskSchema>({
-    resolver: zodResolver(newTaskSchema),
-    defaultValues: {
-      text: ''
-    },
-    mode: 'onChange'
-  });
+export function NewTask({ navigation }: AppScreenProps<'NewTask'>) {
+  const {
+    control,
+    date,
+    time,
+    showDatePicker,
+    showTimePicker,
+    formState,
+    saveData,
+    handleSubmit,
+    formateDateToDDMMYYYY,
+    formateHourMinute,
+    onChangeDate,
+    onChangeTime,
+    setShowTimePicker,
+    setShowDatePicker
+  } = useNewTaskData();
 
   return (
     <Screen hasPaddingBottom={true}>
@@ -135,15 +96,16 @@ export function NewTask() {
       <S.ButtonArea>
         <Button
           title="Cancel"
-          onClick={() => {}}
+          onClick={navigation.goBack}
           type="danger"
           leftIcon="CancelIconBold"
         />
 
         <Button
           title="Save"
-          onClick={() => {}}
+          onClick={handleSubmit(saveData)}
           type="default"
+          isDisabled={!formState.isValid}
           leftIcon="CheckBoldIcon"
         />
       </S.ButtonArea>
