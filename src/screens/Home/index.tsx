@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { FlatList, ListRenderItemInfo } from 'react-native';
+import { FlatList, ListRenderItemInfo, TouchableOpacity } from 'react-native';
 
 import * as S from './styles';
 import { Button, Card, Screen, Switch, Text } from '@components';
@@ -15,7 +15,14 @@ export function Home({ navigation }: AppScreenProps<'Home'>) {
   function renderItem({ item }: ListRenderItemInfo<Task>) {
     // calcular se ta expirado -> la dentro
 
-    return <Card text={item.text} status={'todo'} createdAt={new Date()} />;
+    return (
+      <TouchableOpacity
+        activeOpacity={0.8}
+        onPress={() => navigation.navigate('ShowTask', { task: item })}
+      >
+        <Card text={item.text} status={'todo'} createdAt={new Date()} />
+      </TouchableOpacity>
+    );
   }
 
   return (
