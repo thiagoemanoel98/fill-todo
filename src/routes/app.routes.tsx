@@ -3,11 +3,12 @@ import {
   NativeStackNavigationProp,
   createNativeStackNavigator
 } from '@react-navigation/native-stack';
-import { Home } from '@screens';
+import { Home, NewTask } from '@screens';
 import { NavigationContainer } from '@react-navigation/native';
 
 export type AppRoutesList = {
   Home: undefined;
+  NewTask: undefined;
 };
 
 export type AppStackNavigatorRoutesProps =
@@ -25,6 +26,7 @@ export const AppRoutes = () => {
         }}
       >
         <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="NewTask" component={NewTask} />
       </Stack.Navigator>
     </NavigationContainer>
   );

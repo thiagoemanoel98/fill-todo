@@ -7,8 +7,9 @@ import { Button, Card, Screen, Switch, Text } from '@components';
 import { useHomeData } from './hooks/useHomeData';
 import { Task } from '@models';
 import { Shadow } from '@utils';
+import { AppScreenProps } from '@routes';
 
-export function Home() {
+export function Home({ navigation }: AppScreenProps<'Home'>) {
   const { tasks } = useHomeData();
 
   function renderItem({ item }: ListRenderItemInfo<Task>) {
@@ -35,7 +36,11 @@ export function Home() {
         </S.SwitchArea>
 
         <S.ButtonArea style={Shadow.applyShadow}>
-          <Button title="New" leftIcon="AddIcon" onClick={() => {}} />
+          <Button
+            title="New"
+            leftIcon="AddIcon"
+            onClick={() => navigation.navigate('NewTask')}
+          />
         </S.ButtonArea>
       </S.BottomArea>
     </Screen>
