@@ -9,7 +9,7 @@ import {
   Montserrat_500Medium,
   Montserrat_700Bold
 } from '@expo-google-fonts/montserrat';
-import { Button, Icon, InputCard, Switch, Text } from '@components';
+import { Button, Card, Icon, InputCard, Switch, Text } from '@components';
 import themeStyle from '@styles/themeStyle';
 
 export default function App() {
@@ -25,7 +25,18 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <Switch />
+      <Card
+        text="Log in to the online banking platform and pay the electricity, water, and internet bills by their respective due dates"
+        status="todo"
+        createdAt={new Date()}
+      />
+      <Card
+        text="Log in to the online banking platform and pay the electricity, water, and internet bills by their respective due dates"
+        status="done"
+        createdAt={new Date()}
+      />
+
+      <Switch enable={true} />
 
       <Text variant="Label" color="$blue_dark">
         Open up App.js to start working on your app!
