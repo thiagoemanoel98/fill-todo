@@ -14,6 +14,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { Pressable, View } from 'react-native';
 import { useNewTaskData } from './hooks/useNewTaskData';
 import { AppScreenProps } from '@routes';
+import { formateDateToDDMMYYYY, formateHourMinute } from '@utils';
 
 export function NewTask({ navigation }: AppScreenProps<'NewTask'>) {
   const {
@@ -25,8 +26,6 @@ export function NewTask({ navigation }: AppScreenProps<'NewTask'>) {
     formState,
     saveData,
     handleSubmit,
-    formateDateToDDMMYYYY,
-    formateHourMinute,
     onChangeDate,
     onChangeTime,
     setShowTimePicker,

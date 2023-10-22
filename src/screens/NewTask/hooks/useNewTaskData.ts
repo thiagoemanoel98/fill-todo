@@ -34,21 +34,6 @@ export const useNewTaskData = () => {
     mode: 'onChange'
   });
 
-  function formateDateToDDMMYYYY(data: Date): string {
-    const dia = String(data.getDate()).padStart(2, '0');
-    const mes = String(data.getMonth() + 1).padStart(2, '0');
-    const ano = data.getFullYear();
-
-    return `${dia}/${mes}/${ano}`;
-  }
-
-  function formateHourMinute(data: Date): string {
-    const hora = String(data.getHours()).padStart(2, '0');
-    const minuto = String(data.getMinutes()).padStart(2, '0');
-
-    return `${hora}:${minuto}`;
-  }
-
   const onChangeDate = (
     event: DateTimePickerEvent,
     selectedDate: Date | undefined
@@ -86,8 +71,6 @@ export const useNewTaskData = () => {
   return {
     onChangeDate,
     onChangeTime,
-    formateDateToDDMMYYYY,
-    formateHourMinute,
     setDate,
     setShowDatePicker,
     setShowTimePicker,

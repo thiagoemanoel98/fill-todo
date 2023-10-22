@@ -5,20 +5,25 @@ import { Platform, ViewStyle } from 'react-native';
 import * as S from './styles';
 import { useAppSafeArea } from 'src/hooks/useAppSafeArea';
 import Logo from '../../assets/images/Logo.svg';
+import { useNavigation } from '@react-navigation/native';
+import { AppStackNavigatorRoutesProps } from '@routes';
 
 interface ScreenProps extends ViewStyle {
   children: React.ReactNode;
   hasPaddingTop?: boolean;
   hasPaddingBottom?: boolean;
+  hasGoBackIcon?: boolean;
 }
 
 export function Screen({
   children,
+  hasGoBackIcon = false,
   hasPaddingTop = true,
   hasPaddingBottom = false,
   ...viewStyle
 }: ScreenProps) {
   const { top, bottom } = useAppSafeArea();
+  const { goBack } = useNavigation<AppStackNavigatorRoutesProps>();
 
   return (
     <S.KeyboardAvoidView
@@ -34,9 +39,17 @@ export function Screen({
           viewStyle
         ]}
       >
-        <S.LogoArea>
-          <Logo width={200} height={40} />
-        </S.LogoArea>
+        <S.Header>
+          {hasGoBackIcon && (
+            <S.HeaderLeft onPress={goBack}>
+              <S.GoBackIcon name="chevron-thin-left" />
+            </S.HeaderLeft>
+          )}
+          <S.HeaderCenter>
+            <Logo width={200} height={40} />
+          </S.HeaderCenter>
+          {hasGoBackIcon && <S.HeaderRight />}
+        </S.Header>
         {children}
       </S.Container>
     </S.KeyboardAvoidView>
