@@ -63,7 +63,7 @@ export const useNewTaskData = () => {
     addTask(data);
     Toast.show({
       type: 'success',
-      text1: 'Tarefa cadastrada com sucesso!'
+      text1: 'Task registered successfully!'
     });
     navigation.goBack();
   }

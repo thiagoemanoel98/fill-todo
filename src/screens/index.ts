@@ -1,3 +1,3 @@
 export { Home } from './Home';
 export { NewTask } from './NewTask';
-export { ShowTask } from './showTask';
+export { ShowTask } from './ShowTask';

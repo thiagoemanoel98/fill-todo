@@ -10,7 +10,8 @@ import { useShowTaskData } from './hooks/useShowTaskData';
 export function ShowTask({ route }: AppScreenProps<'ShowTask'>) {
   const { task } = route.params;
 
-  const { handleMarkDone, handleUnmarkDone } = useShowTaskData();
+  const { handleMarkDone, handleUnmarkDone, handleRemoveTask } =
+    useShowTaskData();
 
   return (
     <Screen hasPaddingBottom={true} hasGoBackIcon={true}>
@@ -42,7 +43,7 @@ export function ShowTask({ route }: AppScreenProps<'ShowTask'>) {
           title="Delete"
           type="danger"
           leftIcon="CancelIconBold"
-          onClick={() => {}}
+          onClick={() => handleRemoveTask(task)}
         />
         {task.done ? (
           <Button
