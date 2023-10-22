@@ -3,7 +3,7 @@ import React from 'react';
 import { FlatList, ListRenderItemInfo, TouchableOpacity } from 'react-native';
 
 import * as S from './styles';
-import { Button, Card, Screen, Switch, Text } from '@components';
+import { Button, Card, Screen, Spacer, Switch, Text } from '@components';
 import { useHomeData } from './hooks/useHomeData';
 import { Task } from '@models';
 import { Shadow } from '@utils';
@@ -15,18 +15,20 @@ export function Home({ navigation }: AppScreenProps<'Home'>) {
   function renderItem({ item }: ListRenderItemInfo<Task>) {
     // calcular se ta expirado -> la dentro
 
+    const status = item.done ? 'done' : 'todo';
     return (
       <TouchableOpacity
         activeOpacity={0.8}
         onPress={() => navigation.navigate('ShowTask', { task: item })}
       >
-        <Card text={item.text} status={'todo'} createdAt={new Date()} />
+        <Card text={item.text} status={status} createdAt={new Date()} />
       </TouchableOpacity>
     );
   }
 
   return (
     <Screen alignItems="center">
+      <Spacer height="large" />
       <FlatList
         data={tasks}
         keyExtractor={(item) => item.id}
