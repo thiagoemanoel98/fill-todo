@@ -103,7 +103,7 @@ export function NewTask({ navigation }: AppScreenProps<'NewTask'>) {
         <Button
           title="Save"
           onClick={handleSubmit(saveData)}
-          type="default"
+          type={!formState.isValid ? 'disabled' : 'default'}
           isDisabled={!formState.isValid}
           leftIcon="CheckBoldIcon"
         />

@@ -20,7 +20,7 @@ export const useNewTaskData = () => {
   const [date, setDate] = useState(CurrentDate);
 
   const [time, setTime] = useState(
-    new Date(CurrentDate.getTime() + 3 * 60 * 60 * 1000)
+    new Date(CurrentDate.getTime() + 1 * 60 * 60 * 1000)
   );
 
   const [showDatePicker, setShowDatePicker] = useState(false);

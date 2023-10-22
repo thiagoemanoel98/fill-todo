@@ -1,4 +1,4 @@
-export type ButtonStatusType = 'default' | 'danger';
+export type ButtonStatusType = 'default' | 'danger' | 'disabled';
 export interface ButtonStatus {
   type: ButtonStatusType;
 }

@@ -29,13 +29,13 @@ export function Button({
           <Icon
             name={leftIcon}
             size={22}
-            color={type === 'default' ? '$blue_dark' : '$white'}
+            color={type === 'danger' ? '$white' : '$blue_dark'}
           />
         </S.IconLeftArea>
       )}
       <Text
         variant="Button"
-        color={type === 'default' ? '$blue_dark' : '$white'}
+        color={type === 'danger' ? '$white' : '$blue_dark'}
       >
         {title}
       </Text>
@@ -44,7 +44,7 @@ export function Button({
         <S.IconRightArea>
           <Icon
             name={rightIcon}
-            color={type === 'default' ? '$blue_dark' : '$white'}
+            color={type === 'danger' ? '$white' : '$blue_dark'}
           />
         </S.IconRightArea>
       )}
