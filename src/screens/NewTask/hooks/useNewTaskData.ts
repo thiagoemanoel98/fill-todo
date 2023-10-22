@@ -56,8 +56,8 @@ export const useNewTaskData = () => {
     const data: Task = {
       id: String(uuid.v4()),
       text,
-      creationDate: date,
-      creationTime: time,
+      todoDate: date,
+      todoTime: time,
       done: false
     };
     addTask(data);

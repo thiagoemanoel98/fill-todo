@@ -1,5 +1,5 @@
-export type CardStatus = 'todo' | 'done' | 'expired';
+import { TaskStatus } from '@models';
 
 export interface CardProps {
-  status: CardStatus;
+  status: TaskStatus;
 }

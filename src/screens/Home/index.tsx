@@ -8,14 +8,14 @@ import { useHomeData } from './hooks/useHomeData';
 import { Task } from '@models';
 import { Shadow } from '@utils';
 import { AppScreenProps } from '@routes';
+import { ListEmpty } from './components/ListEmpty';
 
 export function Home({ navigation }: AppScreenProps<'Home'>) {
-  const { tasks } = useHomeData();
+  const { tasks, getStatusOfTask } = useHomeData();
 
   function renderItem({ item }: ListRenderItemInfo<Task>) {
-    // calcular se ta expirado -> la dentro
+    const status = getStatusOfTask(item);
 
-    const status = item.done ? 'done' : 'todo';
     return (
       <TouchableOpacity
         activeOpacity={0.8}
@@ -35,7 +35,9 @@ export function Home({ navigation }: AppScreenProps<'Home'>) {
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
         contentContainerStyle={S.FlatlistBottom}
+        ListEmptyComponent={<ListEmpty />}
       />
+
       <S.BottomArea>
         <S.SwitchArea>
           <Switch enable={false} />

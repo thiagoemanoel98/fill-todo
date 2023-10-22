@@ -25,7 +25,7 @@ export function ShowTask({ route }: AppScreenProps<'ShowTask'>) {
           Date
         </Text>
         <InputCard
-          value={formateDateToDDMMYYYY(task.creationDate)}
+          value={formateDateToDDMMYYYY(task.todoDate)}
           editable={false}
         />
 
@@ -33,10 +33,7 @@ export function ShowTask({ route }: AppScreenProps<'ShowTask'>) {
         <Text variant="Label" marginBottom="sm" fontSize={12}>
           Time
         </Text>
-        <InputCard
-          value={formateHourMinute(task.creationTime)}
-          editable={false}
-        />
+        <InputCard value={formateHourMinute(task.todoTime)} editable={false} />
       </S.Content>
       <S.ButtonArea>
         <Button

@@ -1,7 +1,9 @@
+export type TaskStatus = 'todo' | 'done' | 'expired';
+
 export interface Task {
   id: string;
   text: string;
   done: boolean;
-  creationDate: Date;
-  creationTime: Date;
+  todoDate: Date;
+  todoTime: Date;
 }

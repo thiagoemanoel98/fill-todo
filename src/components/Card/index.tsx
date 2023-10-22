@@ -2,17 +2,19 @@ import React from 'react';
 
 import * as S from './styles';
 
-import { CardStatus } from './types';
 import { Text } from '../Text';
 import { Icon } from '../Icon';
+import { TaskStatus } from '@models';
 
 interface Props {
-  status: CardStatus;
+  status: TaskStatus;
   createdAt: Date;
   text: string;
 }
 
 export function Card({ text, status, createdAt }: Props) {
+  console.log(status);
+
   return (
     <S.Container status={status}>
       <S.SideLeft status={status}>
@@ -30,8 +32,12 @@ export function Card({ text, status, createdAt }: Props) {
       <S.SideRight>
         {status === 'done' ? (
           <Icon name="CheckBoldIcon" color="$blue_dark" size={18} />
-        ) : (
+        ) : status === 'todo' ? (
           <Text variant="Caption">In 2 hours</Text>
+        ) : (
+          <Text variant="Caption" color="$danger">
+            In 2 hours
+          </Text>
         )}
       </S.SideRight>
     </S.Container>

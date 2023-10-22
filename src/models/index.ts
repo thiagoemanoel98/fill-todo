@@ -1,1 +1,1 @@
-export { Task } from './task';
+export { Task, TaskStatus } from './task';
