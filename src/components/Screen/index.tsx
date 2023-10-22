@@ -11,6 +11,8 @@ import {
   ScrollViewContainer,
   ViewContainer
 } from './components/ScreenContainer';
+import { Icon } from '../Icon';
+import { verticalScale } from '@utils';
 
 interface ScreenProps extends ViewStyle {
   children: React.ReactNode;
@@ -51,7 +53,11 @@ export function Screen({
           <S.Header>
             {hasGoBackIcon && (
               <S.HeaderLeft onPress={goBack} hitSlop={10}>
-                <S.GoBackIcon name="chevron-thin-left" />
+                <Icon
+                  name="CaretLeftIcon"
+                  color="$blue_dark"
+                  size={verticalScale(32)}
+                />
               </S.HeaderLeft>
             )}
             <S.HeaderCenter>

@@ -9,6 +9,7 @@ import themeStyle from '@styles/themeStyle';
 import { ESCIcon } from 'src/assets/icons/ESCIcon';
 import { CheckBoldIcon } from 'src/assets/icons/CheckBoldIcon';
 import { CancelIconBold } from 'src/assets/icons/CancelIconBold';
+import { CaretLeftIcon } from 'src/assets/icons/CaretLeftIcon';
 
 export interface IconBase {
   size?: number;
@@ -42,7 +43,8 @@ const iconRegistry = {
   CancelIcon: CancelIcon,
   ESCIcon: ESCIcon,
   CheckBoldIcon: CheckBoldIcon,
-  CancelIconBold: CancelIconBold
+  CancelIconBold: CancelIconBold,
+  CaretLeftIcon: CaretLeftIcon
 };
 
 type IconType = typeof iconRegistry;
