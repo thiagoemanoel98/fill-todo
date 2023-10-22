@@ -33,7 +33,7 @@ export function NewTask({ navigation }: AppScreenProps<'NewTask'>) {
   } = useNewTaskData();
 
   return (
-    <Screen hasPaddingBottom={true} hasGoBackIcon={true}>
+    <Screen hasPaddingBottom={true} hasGoBackIcon={true} scrollable={true}>
       <S.Content>
         <Text variant="Label" marginBottom="sm" marginTop="large" fontSize={12}>
           Describe the task

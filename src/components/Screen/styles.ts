@@ -7,11 +7,6 @@ export const KeyboardAvoidView = styled.KeyboardAvoidingView`
   flex: 1;
 `;
 
-export const Container = styled.View`
-  flex: 1;
-  background-color: ${themeStyle.colors.$blue_lightest};
-`;
-
 export const Header = styled.View`
   justify-content: center;
   align-items: center;
