@@ -47,7 +47,7 @@ export function NewTask({ navigation }: AppScreenProps<'NewTask'>) {
           Select the date
         </Text>
 
-        <Pressable onPress={() => setShowDatePicker((prev) => !prev)}>
+        <Pressable onPress={() => setShowDatePicker(!showDatePicker)}>
           <View pointerEvents="none">
             <InputCard
               editable={false}
@@ -72,7 +72,7 @@ export function NewTask({ navigation }: AppScreenProps<'NewTask'>) {
           Select the time
         </Text>
 
-        <Pressable onPress={() => setShowTimePicker((prev) => !prev)}>
+        <Pressable onPress={() => setShowTimePicker(!showTimePicker)}>
           <View pointerEvents="none">
             <InputCard
               editable={false}

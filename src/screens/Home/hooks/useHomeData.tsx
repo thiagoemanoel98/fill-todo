@@ -1,7 +1,6 @@
 import { Task, TaskStatus } from '@models';
-import { useTaskStore } from '@store';
+import { useHomeStore, useTaskStore } from '@store';
 import { convertDatetimeStringToDate } from '@utils';
-import { useHomeStore } from 'src/store/HomeStore';
 
 export function useHomeData() {
   const [showDoneIsEnable, toggleSwitchShowDone] = useHomeStore((state) => [

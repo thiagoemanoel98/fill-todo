@@ -1,13 +1,13 @@
 import { DateTimePickerEvent } from '@react-native-community/datetimepicker';
-import { useState } from 'react';
+import { useCallback } from 'react';
 import { Platform } from 'react-native';
 import { NewTaskSchema, newTaskSchema } from '../newTaskSchema';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useTaskStore } from '@store';
+import { useNewTaskStore, useTaskStore } from '@store';
 import { Task } from '@models';
 import uuid from 'react-native-uuid';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { AppStackNavigatorRoutesProps } from '@routes';
 import { useToast } from 'react-native-toast-notifications';
 
@@ -18,15 +18,25 @@ export const useNewTaskData = () => {
 
   const navigation = useNavigation<AppStackNavigatorRoutesProps>();
   const [addTask] = useTaskStore((state) => [state.addTask]);
-
-  const [date, setDate] = useState(CurrentDate);
-
-  const [time, setTime] = useState(
-    new Date(CurrentDate.getTime() + 1 * 60 * 60 * 1000)
-  );
-
-  const [showDatePicker, setShowDatePicker] = useState(false);
-  const [showTimePicker, setShowTimePicker] = useState(false);
+  const [
+    date,
+    time,
+    showDatePicker,
+    showTimePicker,
+    setShowDatePicker,
+    setShowTimePicker,
+    changeDate,
+    changeTime
+  ] = useNewTaskStore((state) => [
+    state.date,
+    state.time,
+    state.showDatePicker,
+    state.showTimePicker,
+    state.setShowDatePicker,
+    state.setShowTimePicker,
+    state.changeDate,
+    state.changeTime
+  ]);
 
   const { control, formState, handleSubmit } = useForm<NewTaskSchema>({
     resolver: zodResolver(newTaskSchema),
@@ -42,7 +52,7 @@ export const useNewTaskData = () => {
   ) => {
     const currentDate = selectedDate || date;
     setShowDatePicker(Platform.OS === 'ios');
-    setDate(currentDate);
+    changeDate(currentDate);
   };
 
   const onChangeTime = (
@@ -51,7 +61,7 @@ export const useNewTaskData = () => {
   ) => {
     const currentDate = selectedDate || date;
     setShowTimePicker(Platform.OS === 'ios');
-    setTime(currentDate);
+    changeTime(currentDate);
   };
 
   function saveData({ text }: NewTaskSchema) {
@@ -70,10 +80,16 @@ export const useNewTaskData = () => {
     navigation.goBack();
   }
 
+  useFocusEffect(
+    useCallback(() => {
+      changeTime(new Date(CurrentDate.getTime() + 2 * 60 * 60 * 1000));
+    }, [changeTime])
+  );
+
   return {
     onChangeDate,
     onChangeTime,
-    setDate,
+    changeDate,
     setShowDatePicker,
     setShowTimePicker,
     handleSubmit,
