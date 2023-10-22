@@ -11,11 +11,16 @@ import { AppScreenProps } from '@routes';
 import { ListEmpty } from './components/ListEmpty';
 
 export function Home({ navigation }: AppScreenProps<'Home'>) {
-  const { tasks, getStatusOfTask } = useHomeData();
+  const {
+    tasks,
+    tasksNotDone,
+    getStatusOfTask,
+    showDoneIsEnable,
+    toggleSwitchShowDone
+  } = useHomeData();
 
   function renderItem({ item }: ListRenderItemInfo<Task>) {
     const status = getStatusOfTask(item);
-
     return (
       <TouchableOpacity
         activeOpacity={0.8}
@@ -30,7 +35,7 @@ export function Home({ navigation }: AppScreenProps<'Home'>) {
     <Screen alignItems="center">
       <Spacer height="large" />
       <FlatList
-        data={tasks}
+        data={showDoneIsEnable ? tasks : tasksNotDone()}
         keyExtractor={(item) => item.id}
         renderItem={renderItem}
         showsVerticalScrollIndicator={false}
@@ -40,7 +45,10 @@ export function Home({ navigation }: AppScreenProps<'Home'>) {
 
       <S.BottomArea>
         <S.SwitchArea>
-          <Switch enable={false} />
+          <Switch
+            enable={showDoneIsEnable}
+            toggle={() => toggleSwitchShowDone()}
+          />
           <Text variant="Label" color="$blue_dark" marginLeft="small">
             Show done
           </Text>

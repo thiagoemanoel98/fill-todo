@@ -1,11 +1,17 @@
 import { Task, TaskStatus } from '@models';
 import { useTaskStore } from '@store';
 import { convertDatetimeStringToDate } from '@utils';
+import { useHomeStore } from 'src/store/HomeStore';
 
 export function useHomeData() {
-  const [tasks, tasksFiltered] = useTaskStore((state) => [
+  const [showDoneIsEnable, toggleSwitchShowDone] = useHomeStore((state) => [
+    state.showDoneIsEnable,
+    state.toggleSwitchShowDone
+  ]);
+
+  const [tasks, tasksNotDone] = useTaskStore((state) => [
     state.tasks,
-    state.tasksFiltered
+    state.getTasksNotDone
   ]);
 
   function getStatusOfTask(task: Task): TaskStatus {
@@ -21,7 +27,6 @@ export function useHomeData() {
     return 'todo';
   }
 
-  // posso dividir mais ainda -> pegar partes do dia/mes/ano
   function checkIfTaskExpired(task: Task): boolean {
     const dateTime = convertDatetimeStringToDate(task.todoDate, task.todoTime);
     const currentDatetime = new Date();
@@ -38,5 +43,11 @@ export function useHomeData() {
     }
   }
 
-  return { tasks, tasksFiltered, getStatusOfTask };
+  return {
+    tasks,
+    tasksNotDone,
+    showDoneIsEnable,
+    toggleSwitchShowDone,
+    getStatusOfTask
+  };
 }

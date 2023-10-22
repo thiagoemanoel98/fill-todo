@@ -3,16 +3,18 @@ import { create } from 'zustand';
 
 type TaskStore = {
   tasks: Task[];
-  tasksFiltered: Task[];
+  getTasksNotDone: () => Task[];
   addTask: (task: Task) => void;
   updateTask: (task: Task) => void;
   removeTask: (task: Task) => void;
 };
 
-export const useTaskStore = create<TaskStore>((set) => {
+export const useTaskStore = create<TaskStore>((set, get) => {
   return {
     tasks: [],
-    tasksFiltered: [],
+    getTasksNotDone: () => {
+      return get().tasks.filter((item) => item.done === false);
+    },
     addTask: (task: Task) => {
       set((state) => ({ tasks: [...state.tasks, task] }));
     },

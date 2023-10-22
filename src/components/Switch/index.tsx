@@ -1,21 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import * as S from './styles';
 
 interface Props {
   enable: boolean;
+  toggle: () => void;
 }
 
-export function Switch({ enable = false }: Props) {
-  const [switchEnable, setSwitchEnable] = useState(enable);
-
+export function Switch({ enable = false, toggle }: Props) {
   function handleSwitch() {
-    setSwitchEnable((prev) => !prev);
+    toggle();
   }
 
   return (
-    <S.Container enable={switchEnable} onPress={handleSwitch}>
-      <S.Circle enable={switchEnable} />
+    <S.Container enable={enable} onPress={handleSwitch}>
+      <S.Circle enable={enable} />
     </S.Container>
   );
 }
