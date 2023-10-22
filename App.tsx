@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ActivityIndicator, StatusBar } from 'react-native';
-import Toast from 'react-native-toast-message';
+import { ToastProvider } from 'react-native-toast-notifications';
 
 import {
   useFonts,
@@ -27,12 +27,13 @@ export default function App() {
 
   return (
     <SafeAreaProvider>
-      <StatusBar
-        barStyle="dark-content"
-        backgroundColor={themeStyle.colors.$blue_lightest}
-      />
-      <AppRoutes />
-      <Toast />
+      <ToastProvider placement="top">
+        <StatusBar
+          barStyle="dark-content"
+          backgroundColor={themeStyle.colors.$blue_lightest}
+        />
+        <AppRoutes />
+      </ToastProvider>
     </SafeAreaProvider>
   );
 }

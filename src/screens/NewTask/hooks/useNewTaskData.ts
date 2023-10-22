@@ -7,13 +7,15 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useTaskStore } from '@store';
 import { Task } from '@models';
 import uuid from 'react-native-uuid';
-import Toast from 'react-native-toast-message';
 import { useNavigation } from '@react-navigation/native';
 import { AppStackNavigatorRoutesProps } from '@routes';
+import { useToast } from 'react-native-toast-notifications';
 
 const CurrentDate = new Date();
 
 export const useNewTaskData = () => {
+  const toast = useToast();
+
   const navigation = useNavigation<AppStackNavigatorRoutesProps>();
   const [addTask] = useTaskStore((state) => [state.addTask]);
 
@@ -61,9 +63,8 @@ export const useNewTaskData = () => {
       done: false
     };
     addTask(data);
-    Toast.show({
-      type: 'success',
-      text1: 'Task registered successfully!'
+    toast.show('Task registered successfully!', {
+      type: 'success'
     });
     navigation.goBack();
   }

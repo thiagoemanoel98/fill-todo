@@ -3,9 +3,10 @@ import { useNavigation } from '@react-navigation/native';
 import { AppStackNavigatorRoutesProps } from '@routes';
 import { useTaskStore } from '@store';
 import { Alert } from 'react-native';
-import Toast from 'react-native-toast-message';
+import { useToast } from 'react-native-toast-notifications';
 
 export const useShowTaskData = () => {
+  const toast = useToast();
   const { goBack } = useNavigation<AppStackNavigatorRoutesProps>();
 
   const [updateTask, removeTask] = useTaskStore((state) => [
@@ -34,9 +35,8 @@ export const useShowTaskData = () => {
         text: 'OK',
         onPress: () => {
           removeTask(task);
-          Toast.show({
-            type: 'success',
-            text1: 'Task removed successfully!'
+          toast.show('Task removed successfully!', {
+            type: 'success'
           });
           goBack();
         }
