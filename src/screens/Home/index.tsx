@@ -32,7 +32,7 @@ export function Home({ navigation }: AppScreenProps<'Home'>) {
   }
 
   return (
-    <Screen alignItems="center">
+    <Screen flex={1} alignItems="center">
       <Spacer height="large" />
       <FlatList
         data={showDoneIsEnable ? tasks : tasksNotDone()}
