@@ -17,6 +17,10 @@ export const useShowTaskData = () => {
   function handleMarkDone(task: Task) {
     task.done = true;
     updateTask(task);
+    toast.show('Task marked as done!', {
+      type: 'success',
+      duration: 3000
+    });
   }
 
   function handleUnmarkDone(task: Task) {

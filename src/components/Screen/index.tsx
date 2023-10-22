@@ -50,7 +50,7 @@ export function Screen({
         >
           <S.Header>
             {hasGoBackIcon && (
-              <S.HeaderLeft onPress={goBack}>
+              <S.HeaderLeft onPress={goBack} hitSlop={10}>
                 <S.GoBackIcon name="chevron-thin-left" />
               </S.HeaderLeft>
             )}

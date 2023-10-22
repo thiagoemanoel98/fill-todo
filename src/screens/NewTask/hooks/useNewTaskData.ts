@@ -64,7 +64,8 @@ export const useNewTaskData = () => {
     };
     addTask(data);
     toast.show('Task registered successfully!', {
-      type: 'success'
+      type: 'success',
+      duration: 3000
     });
     navigation.goBack();
   }

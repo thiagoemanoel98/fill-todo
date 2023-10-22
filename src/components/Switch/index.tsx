@@ -13,7 +13,7 @@ export function Switch({ enable = false, toggle }: Props) {
   }
 
   return (
-    <S.Container enable={enable} onPress={handleSwitch}>
+    <S.Container enable={enable} onPress={handleSwitch} hitSlop={10}>
       <S.Circle enable={enable} />
     </S.Container>
   );
