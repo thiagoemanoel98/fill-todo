@@ -18,7 +18,6 @@ export const Container = styled.View<CardProps>`
   width: 100%;
   padding: 16px;
   border-radius: 8px;
-  flex-direction: row;
   margin-bottom: 18px;
 
   ${({ status }) => status === 'done' && statusDone};
@@ -26,14 +25,15 @@ export const Container = styled.View<CardProps>`
   ${({ status }) => status === 'todo' && statusTodo};
 `;
 
-export const SideLeft = styled.View<CardProps>`
-  width: ${({ status }) => (status === 'done' ? 90 : 80)}%;
+export const TextArea = styled.View<CardProps>`
+  width: ${({ status }) => (status === 'done' ? 100 : 100)}%;
 `;
 
-export const SideRight = styled.View`
+export const BottomArea = styled.View`
   align-self: flex-end;
   flex-grow: 1;
   justify-content: flex-end;
   flex-direction: row;
   align-items: right;
+  width: 100%;
 `;

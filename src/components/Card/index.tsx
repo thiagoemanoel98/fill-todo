@@ -6,6 +6,7 @@ import { Text } from '../Text';
 import { Icon } from '../Icon';
 import { Task, TaskStatus } from '@models';
 import { convertDatetimeStringToDate } from '@utils';
+import { Spacer } from '../Spacer';
 
 interface Props {
   status: TaskStatus;
@@ -35,7 +36,7 @@ export function Card({ task, status }: Props) {
 
   return (
     <S.Container status={status}>
-      <S.SideLeft status={status}>
+      <S.TextArea status={status}>
         {status === 'done' ? (
           <Text variant="Body" color="$white" textAlign="justify">
             {task.text}
@@ -45,9 +46,9 @@ export function Card({ task, status }: Props) {
             {task.text}
           </Text>
         )}
-      </S.SideLeft>
-
-      <S.SideRight>
+      </S.TextArea>
+      <Spacer height="small" />
+      <S.BottomArea>
         {status === 'done' ? (
           <Icon name="CheckBoldIcon" color="$blue_dark" size={18} />
         ) : status === 'todo' ? (
@@ -57,7 +58,7 @@ export function Card({ task, status }: Props) {
             {getDifferenceOfDays()} ago
           </Text>
         )}
-      </S.SideRight>
+      </S.BottomArea>
     </S.Container>
   );
 }
