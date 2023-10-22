@@ -4,6 +4,6 @@ export interface Task {
   id: string;
   text: string;
   done: boolean;
-  todoDate: Date;
-  todoTime: Date;
+  todoDate: string;
+  todoTime: string;
 }

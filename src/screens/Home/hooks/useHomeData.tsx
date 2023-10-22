@@ -20,21 +20,31 @@ export function useHomeData() {
     return 'todo';
   }
 
+  // posso dividir mais ainda -> pegar partes do dia/mes/ano
   function checkIfTaskExpired(task: Task): boolean {
-    const currentDate = new Date();
+    const dataParts = task.todoDate.split('/');
+    const horarioParts = task.todoTime.split(':');
 
-    const currentDateWithoutTime = new Date().setHours(0, 0, 0, 0);
-    const todoDateWithoutTime = task.todoDate.setHours(0, 0, 0, 0);
+    const day = parseInt(dataParts[0], 10);
+    const month = parseInt(dataParts[1], 10) - 1;
+    const year = parseInt(dataParts[2], 10);
+    const hour = parseInt(horarioParts[0], 10);
+    const minute = parseInt(horarioParts[1], 10);
+    const second = parseInt(horarioParts[2], 10);
 
-    if (todoDateWithoutTime < currentDateWithoutTime) {
-      console.log('ovoc retorar 1');
-      return true;
-    } else if (task.todoTime < currentDate) {
-      console.log('ovoc retorar 2');
+    const dateTime = new Date(year, month, day, hour, minute, second);
+    const currentDatetime = new Date();
 
+    if (isNaN(dateTime.getTime())) {
+      console.log('Data ou horário inválidos');
       return true;
     }
-    return false;
+
+    if (dateTime < currentDatetime) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   return { tasks, tasksFiltered, getStatusOfTask };

@@ -56,8 +56,8 @@ export const useNewTaskData = () => {
     const data: Task = {
       id: String(uuid.v4()),
       text,
-      todoDate: date,
-      todoTime: time,
+      todoDate: date.toLocaleDateString(),
+      todoTime: time.toLocaleTimeString(),
       done: false
     };
     addTask(data);

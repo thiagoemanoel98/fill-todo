@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Button, InputCard, Screen, Spacer, Text } from '@components';
 import { AppScreenProps } from '@routes';
-import { formateDateToDDMMYYYY, formateHourMinute } from '@utils';
 
 import * as S from './styles';
 import { useShowTaskData } from './hooks/useShowTaskData';
@@ -24,16 +23,13 @@ export function ShowTask({ route }: AppScreenProps<'ShowTask'>) {
         <Text variant="Label" marginBottom="sm" fontSize={12}>
           Date
         </Text>
-        <InputCard
-          value={formateDateToDDMMYYYY(task.todoDate)}
-          editable={false}
-        />
+        <InputCard value={task.todoDate} editable={false} />
 
         <Spacer height="large" />
         <Text variant="Label" marginBottom="sm" fontSize={12}>
           Time
         </Text>
-        <InputCard value={formateHourMinute(task.todoTime)} editable={false} />
+        <InputCard value={task.todoTime} editable={false} />
       </S.Content>
       <S.ButtonArea>
         <Button
