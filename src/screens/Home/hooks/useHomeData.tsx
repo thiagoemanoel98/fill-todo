@@ -1,5 +1,6 @@
 import { Task, TaskStatus } from '@models';
 import { useTaskStore } from '@store';
+import { convertDatetimeStringToDate } from '@utils';
 
 export function useHomeData() {
   const [tasks, tasksFiltered] = useTaskStore((state) => [
@@ -22,17 +23,7 @@ export function useHomeData() {
 
   // posso dividir mais ainda -> pegar partes do dia/mes/ano
   function checkIfTaskExpired(task: Task): boolean {
-    const dataParts = task.todoDate.split('/');
-    const horarioParts = task.todoTime.split(':');
-
-    const day = parseInt(dataParts[0], 10);
-    const month = parseInt(dataParts[1], 10) - 1;
-    const year = parseInt(dataParts[2], 10);
-    const hour = parseInt(horarioParts[0], 10);
-    const minute = parseInt(horarioParts[1], 10);
-    const second = parseInt(horarioParts[2], 10);
-
-    const dateTime = new Date(year, month, day, hour, minute, second);
+    const dateTime = convertDatetimeStringToDate(task.todoDate, task.todoTime);
     const currentDatetime = new Date();
 
     if (isNaN(dateTime.getTime())) {

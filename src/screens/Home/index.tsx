@@ -21,7 +21,7 @@ export function Home({ navigation }: AppScreenProps<'Home'>) {
         activeOpacity={0.8}
         onPress={() => navigation.navigate('ShowTask', { task: item })}
       >
-        <Card text={item.text} status={status} createdAt={new Date()} />
+        <Card task={item} status={status} />
       </TouchableOpacity>
     );
   }
