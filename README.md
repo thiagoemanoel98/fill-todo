@@ -33,7 +33,7 @@
 Clone o projeto e acesse a sua pasta:
 
 ```sh
-$ git clone https://
+$ git clone https://github.com/thiagoemanoel98/fill-todo.git
 $ cd fill-todo
 ```
 
