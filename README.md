@@ -41,7 +41,7 @@ Instale as dependências do projeto e inicie:
 
 ```sh
 # Dependências
-$ yarn start
+$ yarn
 
 # Start
 $ npx expo start
