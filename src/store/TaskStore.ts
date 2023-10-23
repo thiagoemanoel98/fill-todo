@@ -11,6 +11,8 @@ type TaskStore = {
   removeTask: (task: Task) => void;
 };
 
+const KEY_STORAGE = 'tasks-storage';
+
 export const useTaskStore = create<TaskStore>()(
   persist(
     (set, get) => ({
@@ -34,7 +36,7 @@ export const useTaskStore = create<TaskStore>()(
         }))
     }),
     {
-      name: 'tasks-storage',
+      name: KEY_STORAGE,
       storage: createJSONStorage(() => AsyncStorage)
     }
   )

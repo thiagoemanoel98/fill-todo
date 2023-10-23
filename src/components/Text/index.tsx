@@ -49,6 +49,7 @@ export function Text({
   return (
     <RNText
       {...rest}
+      maxFontSizeMultiplier={1.1}
       style={[
         {
           fontSize: fontSize

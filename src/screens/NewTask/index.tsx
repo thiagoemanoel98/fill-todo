@@ -61,7 +61,7 @@ export function NewTask({ navigation }: AppScreenProps<'NewTask'>) {
             value={date}
             mode="date"
             display="spinner"
-            //minimumDate={new Date()}
+            minimumDate={new Date()}
             onChange={onChangeDate}
           />
         )}
@@ -87,7 +87,7 @@ export function NewTask({ navigation }: AppScreenProps<'NewTask'>) {
             value={time}
             mode="time"
             display="spinner"
-            //minimumDate={new Date()}
+            minimumDate={new Date()}
             onChange={onChangeTime}
           />
         )}
